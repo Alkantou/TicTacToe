@@ -7,7 +7,7 @@ class Person:
 
 
     def is_smart(self):
-        return self.name[:5]!="Alex"
+        return self.name[:4]!="Alex"
 
 
     def describe(self):
