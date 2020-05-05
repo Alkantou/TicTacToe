@@ -4,9 +4,9 @@ class TicTacToeClass:
         self.cells = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         self.current_player = 'X'
         self.moves = 0
+        self.winner = None
 
     def next_move(self,row_index:int,column_index:int) -> None:
-        #self.cells[0][0] = 'X'
         self.cells[row_index][column_index]= self.current_player
         self.moves = self.moves + 1
 
