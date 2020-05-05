@@ -25,7 +25,7 @@ class TicTacToeClass:
     def tictactoe(self):
         column_index = 0
         for row_index in range(3):
-             if self.cells[row_indexw_index][column_index] == self.cells[row_index][column_index + 1] and self.cells[row_index][column_index + 1] == self.cells[row_index][column_index + 2]:
+             if self.cells[row_index][column_index] == self.cells[row_index][column_index + 1] and self.cells[row_index][column_index + 1] == self.cells[row_index][column_index + 2]:
                  return True
         row_index = 0
 
