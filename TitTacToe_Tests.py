@@ -33,7 +33,7 @@ def test_game_over_index_raised_value_error():
         game.play_move(4, -1)
 
 
-def test_moves_performed():
+def test_movez_performed():
     game = TicTacToeClass()
     game.play_move(0, 0)
     game.play_move(1, 1)
