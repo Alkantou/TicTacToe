@@ -1,13 +1,20 @@
 class TicTacToeClass:
 
-    def __init__(self,inputmark):
+    def __init__(self, inputmark='X'):
         self.cells = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         self.current_player = inputmark
         self.moves = 0
         self.winner = None
 
-    def next_move(self,row_index:int,column_index:int) -> None:
+    def play_move(self, row_index:int, column_index:int) -> None:
+        if row_index < 0 or row_index > 2:
+            raise ValueError("invalid row index"+ str(row_index))
+        if column_index < 0 or column_index > 2:
+            raise ValueError("invalid row index"+ str(column_index))
+        if self.cells[row_index][column_index] != 0:
+            raise ValueError("Space not Blank")
         self.cells[row_index][column_index]= self.current_player
+        self.switch_player()
         self.moves = self.moves + 1
 
     def switch_player(self):

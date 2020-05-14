@@ -12,5 +12,5 @@ game = TicTacToeClass(input_mark)
 while not game.game_over():
     #print current board
     #read user input
-    game.next_move()
+    game.play_move()
 
