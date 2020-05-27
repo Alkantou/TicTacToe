@@ -49,4 +49,4 @@ while True:
     if game.winner is None:
         print("Unfortunately nobody won")
     else:
-        print("Game winner is : "+ game.winner)
+        print("Game winner is : " + game.winner)
