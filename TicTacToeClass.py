@@ -1,6 +1,8 @@
 class TicTacToeClass:
 
     def __init__(self, inputmark='X'):
+        if inputmark not in ['X', 'O']:
+            raise ValueError("X or O")
         self.cells = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
         self.current_player = inputmark
         self.moves = 0
