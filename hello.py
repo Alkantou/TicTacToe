@@ -1,26 +1,27 @@
 import gi
-import TicTacToeClass
+from TicTacToeClass import TicTacToeClass
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 
 class GridWindow(Gtk.Window):
-    def __init__(self, game):
+    def __init__(self, game1:TicTacToeClass):
         Gtk.Window.__init__(self, title="TIC TAC TOE")
+        self.game = game1
 
         grid = Gtk.Grid()
         self.add(grid)
 
-        button1 = Gtk.Button(label="Button 1")
-        button1.connect("clicked", self.on_button1_clicked)
-        button2 = Gtk.Button(label="Button 2")
-        button3 = Gtk.Button(label="Button 3")
-        button4 = Gtk.Button(label="Button 4")
-        button5 = Gtk.Button(label="Button 5")
-        button6 = Gtk.Button(label="Button 6")
-        button7 = Gtk.Button(label="Button 7")
-        button8 = Gtk.Button(label="Button 8")
-        button9 = Gtk.Button(label="Button 9")
+        button1 = Gtk.Button(label="")
+        button1.connect("clicked", self.on_button1_clicked, (0,0))
+        button2 = Gtk.Button(label="")
+        button3 = Gtk.Button(label="")
+        button4 = Gtk.Button(label="")
+        button5 = Gtk.Button(label="")
+        button6 = Gtk.Button(label="")
+        button7 = Gtk.Button(label="")
+        button8 = Gtk.Button(label="")
+        button9 = Gtk.Button(label="")
 
         grid.add(button1)
         grid.attach(button2, 1, 0, 1, 1)
@@ -32,12 +33,32 @@ class GridWindow(Gtk.Window):
         grid.attach_next_to(button8, button7, Gtk.PositionType.RIGHT, 1, 1)
         grid.attach_next_to(button9, button8, Gtk.PositionType.RIGHT, 1, 1)
 
-    def on_button1_clicked(self, widget):
-        #widget.set_label("Foo")
+    def on_button1_clicked(self, widget, ButtonInput):
+        widget.set_label(self.game.current_player)
         widget.set_sensitive(False)
+        print(ButtonInput)
+        self.game.play_move(row_index=ButtonInput[0],column_index=ButtonInput[1])
+        self.on_info_clicked()
 
+    def on_info_clicked(self):
+        dialog = Gtk.MessageDialog(
+            self,
+            0,
+            Gtk.MessageType.INFO,
+            Gtk.ButtonsType.OK,
+            "This is an INFO MessageDialog",
+        )
+        dialog.format_secondary_text(
+            "And this is the secondary text that explains things."
+        )
+        dialog.run()
+        print("INFO dialog closed")
 
-win = GridWindow()
+        dialog.destroy()
+#Above win = GridWindow() create a TicTacToeClass object and pass it to the GridWindow constructor
+
+game = TicTacToeClass()
+win = GridWindow(game)
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
