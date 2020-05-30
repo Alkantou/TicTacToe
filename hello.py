@@ -46,7 +46,7 @@ class GridWindow(Gtk.Window):
         widget.set_label(self.game.current_player)
         widget.set_sensitive(False)
         print(ButtonInput)
-        self.game.play_move(row_index=ButtonInput[0], column_index=ButtonInput[1])
+        self.game.play_move(row_index=ButtonInput[0],column_index=ButtonInput[1])
         if self.game.game_over():
             self.on_info_clicked()
 
