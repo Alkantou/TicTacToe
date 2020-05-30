@@ -69,7 +69,7 @@ class GridWindow(Gtk.Window):
             dialog.format_secondary_text("Don't Know Who")
             dialog.run()
             print("INFO dialog closed")
-
+#xxxxxx
             dialog.destroy()
             self.game = TicTacToeClass()
             self.button1.set_label(" ")
