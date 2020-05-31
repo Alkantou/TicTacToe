@@ -29,8 +29,8 @@ class Person:
 
 
     # exercise comment out and see before and after
-    # def __repr__(self):
-    #     return self.name+ " is a " + self.sex.value + " with " + str(len(self.siblings)) + " siblings : " + ",".join([x.name for x in self.siblings])
+    def __repr__(self):
+      return self.name+ " is a " + self.sex.value + " with " + str(len(self.siblings)) + " siblings : " + ",".join([x.name for x in self.siblings])
 
 
 
